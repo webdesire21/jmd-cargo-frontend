@@ -147,120 +147,124 @@ const TrackShipment = () => {
         )}
 
 
-{data && (
+        {data && (
 
-  <div className="mt-8 border-t pt-6">
+          <div className="mt-8 border-t pt-6">
 
-    <div className="max-w-3xl mx-auto border border-gray-300 rounded-lg overflow-hidden">
+            <div className="max-w-3xl mx-auto border border-gray-300 rounded-lg overflow-hidden">
 
-      {/* HEADER */}
-      <div className="bg-[#b21f2d] text-white text-center font-bold py-3">
-        SHIPMENT DETAILS
-      </div>
+              {/* HEADER */}
+              <div className="bg-[#b21f2d] text-white text-center font-bold py-3">
+                SHIPMENT DETAILS
+              </div>
 
-      <table className="w-full text-sm">
+              <table className="w-full text-sm">
 
-        <tbody>
+                <tbody>
 
-          <tr className="border-b">
-            <td className="bg-gray-100 font-semibold p-3 w-1/3">
-              Tracking ID:
-            </td>
-            <td className="p-3">
-              {data.trackingId}
-            </td>
-          </tr>
+                  <tr className="border-b">
+                    <td className="bg-gray-100 font-semibold p-3 w-1/3">
+                      Tracking ID:
+                    </td>
+                    <td className="p-3">
+                      {data.trackingId}
+                    </td>
+                  </tr>
 
-          <tr className="border-b">
-            <td className="bg-gray-100 font-semibold p-3">
-              Customer:
-            </td>
-            <td className="p-3">
-              {data.customerName}
-            </td>
-          </tr>
+                  <tr className="border-b">
+                    <td className="bg-gray-100 font-semibold p-3">
+                      Customer:
+                    </td>
+                    <td className="p-3">
+                      {data.customerName}
+                    </td>
+                  </tr>
 
-          <tr className="border-b">
-            <td className="bg-gray-100 font-semibold p-3">
-              Phone:
-            </td>
-            <td className="p-3">
-              {data.phone}
-            </td>
-          </tr>
+                  <tr className="border-b">
+                    <td className="bg-gray-100 font-semibold p-3">
+                      Phone:
+                    </td>
+                    <td className="p-3">
+                      {data.phone}
+                    </td>
+                  </tr>
 
-          <tr className="border-b">
-            <td className="bg-gray-100 font-semibold p-3">
-              Origin:
-            </td>
-            <td className="p-3">
-              {data.origin}
-            </td>
-          </tr>
+                  <tr className="border-b">
+                    <td className="bg-gray-100 font-semibold p-3">
+                      Origin:
+                    </td>
+                    <td className="p-3">
+                      {data.origin}
+                    </td>
+                  </tr>
 
-          <tr className="border-b">
-            <td className="bg-gray-100 font-semibold p-3">
-              Destination:
-            </td>
-            <td className="p-3">
-              {data.destination}
-            </td>
-          </tr>
+                  <tr className="border-b">
+                    <td className="bg-gray-100 font-semibold p-3">
+                      Destination:
+                    </td>
+                    <td className="p-3">
+                      {data.destination}
+                    </td>
+                  </tr>
 
-          <tr className="border-b">
-            <td className="bg-gray-100 font-semibold p-3">
-              Courier:
-            </td>
-            <td className="p-3">
-              {data.courierCompany}
-            </td>
-          </tr>
+                  <tr className="border-b">
+                    <td className="bg-gray-100 font-semibold p-3">
+                      Courier:
+                    </td>
+                    <td className="p-3">
+                      {data.courierCompany}
+                    </td>
+                  </tr>
 
-          <tr className="border-b">
-            <td className="bg-gray-100 font-semibold p-3">
-              Status:
-            </td>
-            <td className="p-3 font-bold text-green-600">
-              {data.status}
-            </td>
-          </tr>
+                  <tr className="border-b">
+                    <td className="bg-gray-100 font-semibold p-3">
+                      Status:
+                    </td>
+                    <td className="p-3 font-bold text-green-600">
+                      {data.status}
+                    </td>
+                  </tr>
 
-          <tr className="border-b">
-            <td className="bg-gray-100 font-semibold p-3">
-              Shipment Date:
-            </td>
-            <td className="p-3">
-              {new Date(data.shipmentDate).toLocaleDateString()}
-            </td>
-          </tr>
+                  <tr className="border-b">
+                    <td className="bg-gray-100 font-semibold p-3">
+                      Shipment Date:
+                    </td>
+                    <td className="p-3">
+                      {new Date(data.shipmentDate).toLocaleDateString()}
+                    </td>
+                  </tr>
 
-          <tr>
-            <td className="bg-gray-100 font-semibold p-3">
-              Expected Delivery:
-            </td>
-            <td className="p-3">
-              {new Date(data.expectedDeliveryDate).toLocaleDateString()}
-            </td>
-          </tr>
+                  <tr>
+                    <td className="bg-gray-100 font-semibold p-3">
+                      Expected Delivery:
+                    </td>
+                    <td className="p-3">
+                      {new Date(data.expectedDeliveryDate).toLocaleDateString()}
+                    </td>
+                  </tr>
 
-        </tbody>
+                </tbody>
 
-      </table>
+              </table>
 
-    </div>
+            </div>
 
-    <a
-      href={data.courierLink}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-block mt-6 bg-[#b21f2d] text-white px-6 py-3 rounded-lg hover:bg-[#9b1b26]"
-    >
-      Track on Courier Website
-    </a>
+            <a
+              href={
+                data.courierLink.startsWith("http")
+                  ? data.courierLink
+                  : `https://${data.courierLink}`
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-6 bg-[#b21f2d] text-white px-6 py-3 rounded-lg hover:bg-[#9b1b26]"
+            >
+              Track on Courier Website
+            </a>
 
-  </div>
+          </div>
 
-)}
+        )}
 
       </div>
 
